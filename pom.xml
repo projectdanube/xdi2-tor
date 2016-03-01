@@ -3,20 +3,20 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>xdi2</groupId>
-	<artifactId>xdi2-ipfs</artifactId>
+	<artifactId>xdi2-tor</artifactId>
 	<packaging>${packaging.type}</packaging>
 	<version>0.8-SNAPSHOT</version>
-	<name>xdi2-ipfs</name>
+	<name>xdi2-tor</name>
 
 	<issueManagement>
-		<url>https://github.com/projectdanube/xdi2-ipfs/issues</url>
+		<url>https://github.com/projectdanube/xdi2-tor/issues</url>
 		<system>GitHub Issues</system>
 	</issueManagement>
 
 	<scm>
-		<url>https://github.com/projectdanube/xdi2-ipfs</url>
-		<connection>scm:git:git://github.com/projectdanube/xdi2-ipfs.git</connection>
-		<developerConnection>scm:git:git@github.com:projectdanube/xdi2-ipfs.git</developerConnection>
+		<url>https://github.com/projectdanube/xdi2-tor</url>
+		<connection>scm:git:git://github.com/projectdanube/xdi2-tor.git</connection>
+		<developerConnection>scm:git:git@github.com:projectdanube/xdi2-tor.git</developerConnection>
 	</scm>
 
 	<properties>
@@ -136,12 +136,6 @@
 			<version>2.5</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.ipfs</groupId>
-			<artifactId>api</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<scope>compile</scope>
-		</dependency>
 
 	</dependencies>
 
@@ -233,7 +227,7 @@
 							<systemProperties>
 								<systemProperty>
 									<name>jetty.port</name>
-									<value>9992</value>
+									<value>9995</value>
 								</systemProperty>
 								<systemProperty>
 									<name>slf4j</name>
