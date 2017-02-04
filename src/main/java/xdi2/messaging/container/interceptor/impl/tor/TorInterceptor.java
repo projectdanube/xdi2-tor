@@ -1,4 +1,4 @@
-package xdi2.messaging.target.interceptor.impl.tor;
+package xdi2.messaging.container.interceptor.impl.tor;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,17 +19,17 @@ import xdi2.core.features.nodetypes.XdiCommonRoot;
 import xdi2.core.syntax.XDIAddress;
 import xdi2.core.syntax.XDIArc;
 import xdi2.core.util.GraphUtil;
-import xdi2.messaging.target.MessagingTarget;
-import xdi2.messaging.target.Prototype;
-import xdi2.messaging.target.impl.graph.GraphMessagingTarget;
-import xdi2.messaging.target.interceptor.impl.AbstractInterceptor;
+import xdi2.messaging.container.MessagingContainer;
+import xdi2.messaging.container.Prototype;
+import xdi2.messaging.container.impl.graph.GraphMessagingContainer;
+import xdi2.messaging.container.interceptor.impl.AbstractInterceptor;
 
 /**
  * This interceptor can add a Tor hidden service address as $rep equivalence relation.
  * 
  * @author markus
  */
-public class TorInterceptor extends AbstractInterceptor<MessagingTarget> implements Prototype<TorInterceptor> {
+public class TorInterceptor extends AbstractInterceptor<MessagingContainer> implements Prototype<TorInterceptor> {
 
 	public final static int INIT_PRIORITY = 40;
 	public final static int SHUTDOWN_PRIORITY = 40;
@@ -67,14 +67,14 @@ public class TorInterceptor extends AbstractInterceptor<MessagingTarget> impleme
 	 */
 
 	@Override
-	public void init(MessagingTarget messagingTarget) throws Exception {
+	public void init(MessagingContainer messagingContainer) throws Exception {
 
-		super.init(messagingTarget);
+		super.init(messagingContainer);
 
-		if (! (messagingTarget instanceof GraphMessagingTarget)) return;
+		if (! (messagingContainer instanceof GraphMessagingContainer)) return;
 
-		GraphMessagingTarget graphMessagingTarget = (GraphMessagingTarget) messagingTarget;
-		Graph graph = graphMessagingTarget.getGraph();
+		GraphMessagingContainer graphMessagingContainer = (GraphMessagingContainer) messagingContainer;
+		Graph graph = graphMessagingContainer.getGraph();
 
 		if (log.isDebugEnabled()) log.debug("hiddenServiceDir=" + this.getHiddenServiceDirs());
 
@@ -115,9 +115,9 @@ public class TorInterceptor extends AbstractInterceptor<MessagingTarget> impleme
 	}
 
 	@Override
-	public void shutdown(MessagingTarget messagingTarget) throws Exception {
+	public void shutdown(MessagingContainer messagingContainer) throws Exception {
 
-		super.shutdown(messagingTarget);
+		super.shutdown(messagingContainer);
 	}
 
 	public List<XDIAddress> loadHiddenServiceSynonyms(Character cs) {
